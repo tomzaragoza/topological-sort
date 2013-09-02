@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -50,5 +51,16 @@ public class JsonPractice {
             e.printStackTrace();
         }
         return taskList;
+    }
+    
+    public static HashMap<String, ArrayList<String>> idToDependencies(ArrayList<Task> allTasks) {
+
+        HashMap<String, ArrayList<String>> idToDependencies;
+        idToDependencies = new HashMap<String, ArrayList<String>>();
+        
+        for (Task task : allTasks) {
+            idToDependencies.put(task.id, task.dependencies);
+        }
+        return idToDependencies;
     }
 }
