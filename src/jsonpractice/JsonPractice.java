@@ -63,4 +63,15 @@ public class JsonPractice {
         }
         return idToDependencies;
     }
+    
+    public static HashMap<String, Integer> idToRuntime(ArrayList<Task> allTasks){
+        HashMap<String, Integer> idToRuntime;
+        idToRuntime = new HashMap<String, Integer>();
+        
+        for (Task task : allTasks) {
+            idToRuntime.put(task.id, task.runtime);
+        }
+
+        return idToRuntime;
+    }
 }
