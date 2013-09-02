@@ -55,8 +55,7 @@ public class JsonPractice {
     
     public static HashMap<String, ArrayList<String>> idToDependencies(ArrayList<Task> allTasks) {
 
-        HashMap<String, ArrayList<String>> idToDependencies;
-        idToDependencies = new HashMap<String, ArrayList<String>>();
+        HashMap<String, ArrayList<String>> idToDependencies = new HashMap<>();
         
         for (Task task : allTasks) {
             idToDependencies.put(task.id, task.dependencies);
@@ -65,13 +64,23 @@ public class JsonPractice {
     }
     
     public static HashMap<String, Integer> idToRuntime(ArrayList<Task> allTasks){
-        HashMap<String, Integer> idToRuntime;
-        idToRuntime = new HashMap<String, Integer>();
+        HashMap<String, Integer> idToRuntime = new HashMap<>();
         
         for (Task task : allTasks) {
             idToRuntime.put(task.id, task.runtime);
         }
 
         return idToRuntime;
+    }
+    
+    public ArrayList<String> taskNoDependencies(ArrayList<Task> allTasks) {
+        ArrayList<String> taskNoDependencies = new ArrayList<>();
+        
+        for (Task task : allTasks) {
+            if (task.dependencies.isEmpty()) {
+                taskNoDependencies.add(task.id);
+            }
+        }
+        return taskNoDependencies;
     }
 }
